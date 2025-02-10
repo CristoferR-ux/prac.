@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Una página especial con girasoles y frases románticas para mi amor.">
+    <title>Para Mi Amor 🌻</title>
+    <style>
+        body {
+            background: url('https://media.admagazine.com/photos/618a5e38b67f79aa891ed699/master/w_1600,c_limit/92913.jpg') no-repeat center center fixed;
+            background-size: cover;
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+            color: white;
+        }
+        .container {
+            margin-top: 20vh;
+        }
+        .frase {
+            font-size: 2em;
+            max-width: 80%;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.6);
+            display: inline-block;
+            border-radius: 10px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+            opacity: 1;
+            transition: opacity 1s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .girasol {
+            width: 100px;
+            transition: transform 0.3s;
+        }
+        @keyframes girasolMov {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(5deg) scale(1.1); }
+            100% { transform: rotate(-5deg) scale(1); }
+        }
+        .girasol:hover {
+            animation: girasolMov 0.5s infinite alternate ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img class="girasol" src="https://pm1.aminoapps.com/7835/d2564e0fc5a0eb1cc7e02d5edcdaf935bca83a50r1-500-486v2_hq.jpg" alt="Girasol">
+        <div class="frase" id="frase"></div>
+    </div>
+    <script>
+        const frases = [
+            "Eres mi sol en los días nublados ☀️",
+            "Te amo más de lo que las palabras pueden decir ❤️",
+            "Eres la luz que ilumina mi camino 💫",
+            "Cada día contigo es un regalo 🎁"
+        ];
+        function cambiarFrase() {
+            const fraseElemento = document.getElementById('frase');
+            fraseElemento.style.opacity = 0;
+            setTimeout(() => {
+                const index = Math.floor(Math.random() * frases.length);
+                fraseElemento.textContent = frases[index];
+                fraseElemento.style.opacity = 1;
+            }, 500);
+        }
+        cambiarFrase();
+        setInterval(cambiarFrase, 3000);
+    </script>
+</body>
+</html>
